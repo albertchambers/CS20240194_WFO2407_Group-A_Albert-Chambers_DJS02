@@ -12,6 +12,9 @@ form.addEventListener("submit", (event) => {
   } else if (dividend > divider) {
     result.innerText = 'Division not performed. Invalid number provided. Try again.'
     console.error('Invalid Numbers Entered');
+  } else if (isNaN(dividend) || isNaN(divider)) {
+    result.innerText = 'Something critical went wrong. Please reload the page.';
+    throw new Error('Critical Error: NaN Provided');
   } else {
     result.innerText = Math.floor(dividend / divider);
   }
